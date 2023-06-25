@@ -20,9 +20,31 @@
  * @returns The number of perfect squares between a and b (inclusive).
  */
 function countSquares(a, b) {
-    return -1; // Replace this with your implementation
-}
+    
+   // Swap A and B if (A>B) 
+   if (a > b) {
+    [a, b] = [b, a];
+  }
 
+  let count = 0;
+
+  if (a >= 0) {
+    // Iterate from the square root of A and square root of B
+    for (let i = Math.ceil(Math.sqrt(a)); i <= Math.floor(Math.sqrt(b)); i++) {
+      count++;
+    }
+  } else if (b >= 0) {
+     //Iterate from 0 to the square root of B
+    for (let i = 0; i <= Math.floor(Math.sqrt(b)); i++) {
+      count++;
+    }
+  } else {
+     //Both A and B are negative no perfect square in the range
+    count = 0;
+  }
+
+  return count;
+} 
 /**
  * The code below this point runs the tests that you see on the index.html page. You don't need to change anything below.
  */
